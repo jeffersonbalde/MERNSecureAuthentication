@@ -1,11 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose")
 const app = express();
+const cookieParser = require("cookie-parser");
 
 const UserRoutes = require("./routes/user.routes.js")
 
-// app.use(express.json());
-// app.use(express.urlencoded({extend: false}));
+app.use(express.json());
+app.use(express.urlencoded({extend: false}));
+app.use(cookieParser());
 
 app.use("/", UserRoutes)
 
